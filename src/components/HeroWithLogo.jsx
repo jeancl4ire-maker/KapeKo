@@ -10,7 +10,7 @@ const HeroWithLogo = () => {
         <div className="text-center mb-12 animate-fade-in-up">
           <div className="inline-block p-8 bg-amber-50 rounded-2xl shadow-2xl border border-amber-200 transform hover:scale-105 transition-transform duration-300">
             <img 
-              src="/images/icon_logo.jpg" 
+              src={`${process.env.PUBLIC_URL}/images/icon_logo.jpg`}
               alt="Kape Ko - Coffee Delivery & Pickup"
               className="w-80 h-auto mx-auto rounded-xl shadow-lg"
             />
