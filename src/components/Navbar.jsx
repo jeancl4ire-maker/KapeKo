@@ -6,6 +6,7 @@ import AuthModal from './AuthModal';
 
 export default function Navbar() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { currentUser, logout } = useAuth();
   const { getCartCount, setIsCartOpen } = useCart();
   const location = useLocation();
@@ -88,13 +89,57 @@ export default function Navbar() {
               )}
 
               {/* Mobile Menu Button */}
-              <button className="md:hidden p-2 text-coffee-brown">
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 text-coffee-brown"
+              >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
             </div>
           </div>
+
+          {/* Mobile Menu Dropdown */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-coffee-cream border-t border-coffee-brown">
+              <div className="px-4 py-3 space-y-3">
+                <Link
+                  to="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block font-semibold transition-colors ${
+                    location.pathname === '/' 
+                      ? 'text-coffee-brown' 
+                      : 'text-coffee-dark hover:text-coffee-brown'
+                  }`}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/menu"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block font-semibold transition-colors ${
+                    location.pathname === '/menu' 
+                      ? 'text-coffee-brown' 
+                      : 'text-coffee-dark hover:text-coffee-brown'
+                  }`}
+                >
+                  Menu
+                </Link>
+                {currentUser && (
+                  <button
+                    onClick={() => {
+                      logout();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full text-left font-semibold text-coffee-brown hover:text-coffee-dark transition-colors"
+                  >
+                    Logout
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
