@@ -73,7 +73,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <span className="mr-2">✉️</span>
-                kapeko.biliran@gmail.com
+                jeancl4ire@gmail.com
               </li>
               <li className="flex items-center">
                 <span className="mr-2">🕐</span>
