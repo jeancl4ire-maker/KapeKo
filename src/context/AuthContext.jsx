@@ -34,6 +34,7 @@ export function AuthProvider({ children }) {
       localStorage.setItem('kapeko_token', token);
       localStorage.setItem('kapeko_user', JSON.stringify(user));
       setCurrentUser(user);
+      hideAuthModal();
       
       return { success: true };
     } catch (error) {
@@ -50,6 +51,7 @@ export function AuthProvider({ children }) {
       localStorage.setItem('kapeko_token', token);
       localStorage.setItem('kapeko_user', JSON.stringify(user));
       setCurrentUser(user);
+      hideAuthModal();
       
       return { success: true };
     } catch (error) {

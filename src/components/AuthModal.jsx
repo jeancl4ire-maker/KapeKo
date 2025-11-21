@@ -81,7 +81,6 @@ export default function AuthModal() {
       }
       
       if (result.success) {
-        // Success handled in AuthContext - hideAuthModal is called there
         // Reset form
         setFormData({
           name: '',
@@ -90,11 +89,13 @@ export default function AuthModal() {
           password: '',
           confirmPassword: ''
         });
+        // Close modal after successful login/register
+        hideAuthModal();
       } else {
         setErrors({ general: result.error });
       }
     } catch (error) {
-      setErrors({ general: 'An error occurred. Please try again.' });
+      setErrors({ general: error.message || 'An error occurred. Please try again.' });
     } finally {
       setIsLoading(false);
     }
