@@ -65,7 +65,7 @@ export default function Footer() {
             <ul className="space-y-2 text-coffee-cream">
               <li className="flex items-center">
                 <span className="mr-2">📍</span>
-                123 Coffee Street, Manila, Philippines
+                Naval, Biliran, Philippines
               </li>
               <li className="flex items-center">
                 <span className="mr-2">📞</span>
@@ -73,7 +73,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <span className="mr-2">✉️</span>
-                orders@kapeko.com
+                kapeko.biliran@gmail.com
               </li>
               <li className="flex items-center">
                 <span className="mr-2">🕐</span>
